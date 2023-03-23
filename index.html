@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Download Script</title>
+  </head>
+  <body>
+    <h1>Download Script</h1>
+    <p>Please select your operating system:</p>
+    <form>
+      <input type="radio" name="os" value="windows" checked>Windows<br>
+      <input type="radio" name="os" value="mac">Mac<br>
+      <input type="radio" name="os" value="linux">Linux<br>
+      <br>
+      <button type="submit" onclick="download()">Download</button>
+    </form>
+    <script>
+      function download() {
+        const os = document.querySelector('input[name="os"]:checked').value;
+        let url;
+        if (os === 'windows') {
+          url = 'https://github.com/username/repository/raw/master/script.exe';
+        } else if (os === 'mac') {
+          url = 'https://github.com/username/repository/raw/master/script.dmg';
+        } else if (os === 'linux') {
+          url = 'https://github.com/username/repository/raw/master/script.deb';
+        }
+        window.location = url;
+      }
+    </script>
+  </body>
+</html>
